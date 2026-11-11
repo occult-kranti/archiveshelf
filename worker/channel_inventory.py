@@ -211,10 +211,12 @@ def parse_sam_session(channel: dict[str, Any], entry: dict[str, str], number: in
     )
 
 
-def crawl_sam(channel: dict[str, Any], session: requests.Session, output: Path, delay: float) -> tuple[list[Video], int | None]:
+def crawl_sam(channel: dict[str, Any], session: requests.Session, output: Path, delay: float, limit: int | None = None) -> tuple[list[Video], int | None]:
     source = channel["inventorySources"][0]
     entries = parse_sam_index(channel, fetch(session, source))
     expected = max(entries) if entries else None
+    if limit:
+        entries = dict(sorted(entries.items())[:limit])
     records: list[Video] = []
     blocked: SourceError | None = None
     for number in sorted(entries):

@@ -1,0 +1,57 @@
+name: Sam transcript archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum sessions; 0 processes the full official index"
+        required: true
+        default: "0"
+
+permissions:
+  contents: write
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r worker/requirements.txt
+      - name: Verify one session transcript
+        run: python worker/sam_transcripts.py --output smoke-output --limit 1 --delay 1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sam-transcript-smoke
+          path: smoke-output
+          retention-days: 2
+
+  archive:
+    needs: smoke
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r worker/requirements.txt
+      - name: Archive all official session transcripts
+        run: python worker/sam_transcripts.py --output inventory/channels/sam-the-illusionist --limit ${{ inputs.limit }} --delay 1
+      - name: Commit transcript archive and verification
+        run: |
+          git config user.name "ArchiveShelf Automation"
+          git config user.email "archiveshelf@example.invalid"
+          git add inventory/channels/sam-the-illusionist inventory/CHANNELS.md inventory/VIDEOS.md inventory/videos.csv inventory/videos.json inventory/channel-summary.json inventory/verification.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update Sam transcript archive [skip ci]"
+            git push origin main
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sam-transcripts
+          path: inventory/channels/sam-the-illusionist
+          retention-days: 7
