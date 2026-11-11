@@ -28,6 +28,7 @@ def main() -> None:
     if args.limit == 1 and not any(record.transcript_path for record in records):
         raise SystemExit("Smoke transcript could not be collected; see per-session errors in the output")
     write_outputs(output, [summary], records)
+    (output / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(summary, indent=2, ensure_ascii=False))
 
 
