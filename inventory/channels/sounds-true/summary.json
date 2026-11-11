@@ -1,28 +1,26 @@
 {
   "channel": "Sounds True",
-  "url": "https://www.youtube.com/user/SoundsTrueVideos",
+  "url": "https://feeds.podcastmirror.com/sounds-true-insights",
   "identityStatus": "verified",
-  "verification": "Official soundstrue.com outbound YouTube link",
+  "verification": "Sounds True: Insights at the Edge, official public podcast feed",
   "scopes": [
-    "not_crawled"
+    "podcast_feed"
   ],
-  "expectedCount": null,
-  "indexEntries": 0,
-  "sourceItems": 0,
-  "totalVideos": 0,
-  "earliestVideo": null,
-  "latestVideo": null,
-  "metadataComplete": 0,
+  "expectedCount": 956,
+  "indexEntries": 956,
+  "sourceItems": 956,
+  "totalVideos": 956,
+  "earliestVideo": "2009-02-25",
+  "latestVideo": "2026-11-10",
+  "metadataComplete": 956,
   "transcripts": 0,
-  "totalDurationSeconds": 0,
+  "totalDurationSeconds": 3486032.0,
   "totalViews": 0,
   "totalLikes": 0,
   "totalComments": 0,
   "withCaptions": 0,
   "duplicatesRemoved": 0,
-  "errors": [
-    "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
-  ],
+  "errors": [],
   "channelWideVerified": false,
-  "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+  "coverageNote": "956 official podcast episodes; channel-wide YouTube count unknown"
 }

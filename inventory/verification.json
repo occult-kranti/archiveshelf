@@ -340,8 +340,8 @@
   "totals": {
     "channels": 12,
     "resolvedChannels": 8,
-    "videos": 195,
-    "transcripts": 0,
+    "videos": 1408,
+    "transcripts": 257,
     "channelWideVerified": 0
   },
   "audioExecution": "Not run for third-party channels because authorization was not confirmed"
