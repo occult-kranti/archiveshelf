@@ -46,6 +46,7 @@ __pycache__/
 .python/
 .models/
 .archive-work/
+.playwright-cli/
 exports/
 *.mp3
 *.m4a

@@ -30,6 +30,15 @@ type Summary = {
   coverageNote: string;
 };
 
+type OfficialMediaSummary = {
+  totalIndexed: number;
+  matchedOfficialMedia: number;
+  unavailableOfficialMedia: number;
+  unmatchedIds: string[];
+  officialEventPages: number;
+  matchingRule: string;
+};
+
 type Video = {
   channel: string;
   scope: string;
@@ -59,6 +68,7 @@ type Video = {
 
 export default function ChannelsPage() {
   const [summaries, setSummaries] = useState<Summary[]>([]);
+  const [officialMedia, setOfficialMedia] = useState<OfficialMediaSummary | null>(null);
   const [videos, setVideos] = useState<Video[]>([]);
   const [selected, setSelected] = useState("Kryon Lee Carroll");
   const [query, setQuery] = useState("");
@@ -70,9 +80,11 @@ export default function ChannelsPage() {
     Promise.all([
       fetch("/inventory/channel-summary.json").then((response) => response.ok ? response.json() : Promise.reject(new Error("Channel summary not found"))),
       fetch("/inventory/videos.json").then((response) => response.ok ? response.json() : Promise.reject(new Error("Video inventory not found"))),
-    ]).then(([summaryData, videoData]) => {
+      fetch("/inventory/official-media-summary.json").then((response) => response.ok ? response.json() : null),
+    ]).then(([summaryData, videoData, officialData]) => {
       setSummaries(summaryData);
       setVideos(videoData);
+      setOfficialMedia(officialData);
     }).catch((cause) => setError(cause instanceof Error ? cause.message : "Inventory could not be loaded"))
       .finally(() => setLoading(false));
   }, []);
@@ -106,6 +118,8 @@ export default function ChannelsPage() {
           ["Verified identities", summaries.filter((summary) => summary.identityStatus === "verified").length],
           ["Unique indexed videos", totals],
           ["Channel-wide verified", summaries.filter((summary) => summary.channelWideVerified).length],
+          ["Official MP3s", officialMedia?.matchedOfficialMedia ?? 0],
+          ["Unavailable direct matches", officialMedia?.unavailableOfficialMedia ?? 0],
         ].map(([label, value]) => <div className="border-l py-5 pl-4 first:border-l-0 first:pl-0 sm:pl-6" key={label}><dt className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">{label}</dt><dd className="mt-1 text-2xl font-semibold">{value}</dd></div>)}
       </dl>
 
@@ -113,7 +127,7 @@ export default function ChannelsPage() {
         <>
           <div className="mt-7 overflow-x-auto rounded-xl border">
             <table className="w-full min-w-[980px] text-left text-sm">
-              <thead className="bg-muted/55 font-mono text-[11px] uppercase tracking-wider text-muted-foreground"><tr><th className="px-4 py-3 font-normal">Channel</th><th className="px-4 py-3 font-normal">Scope</th><th className="px-4 py-3 font-normal">Earliest</th><th className="px-4 py-3 font-normal">Latest</th><th className="px-4 py-3 font-normal">Raw rows</th><th className="px-4 py-3 font-normal">Items</th><th className="px-4 py-3 font-normal">Unique</th><th className="px-4 py-3 font-normal">Transcripts</th><th className="px-4 py-3 font-normal">Action</th></tr></thead>
+              <thead className="bg-muted/55 font-mono text-[11px] uppercase tracking-wider text-muted-foreground"><tr><th className="px-4 py-3 font-normal">Channel</th><th className="px-4 py-3 font-normal">Scope</th><th className="px-4 py-3 font-normal">Earliest</th><th className="px-4 py-3 font-normal">Latest</th><th className="px-4 py-3 font-normal">Raw rows</th><th className="px-4 py-3 font-normal">Items</th><th className="px-4 py-3 font-normal">Unique</th><th className="px-4 py-3 font-normal">Transcripts</th><th className="px-4 py-3 font-normal">Official MP3s</th><th className="px-4 py-3 font-normal">Action</th></tr></thead>
               <tbody className="divide-y">
                 {summaries.map((summary) => <tr key={summary.channel} className={selected === summary.channel ? "bg-accent/45" : "hover:bg-muted/35"}>
                   <td className="max-w-56 px-4 py-4"><div className="font-medium">{summary.channel}</div><div className="mt-1 text-xs capitalize text-muted-foreground">{summary.identityStatus}</div></td>
@@ -124,6 +138,7 @@ export default function ChannelsPage() {
                   <td className="px-4 py-4 font-mono text-xs">{summary.sourceItems}</td>
                   <td className="px-4 py-4 font-mono text-xs font-semibold">{summary.totalVideos}</td>
                   <td className="px-4 py-4 font-mono text-xs">{summary.transcripts}</td>
+                  <td className="px-4 py-4 font-mono text-xs">{summary.channel === "Kryon Lee Carroll" ? officialMedia?.matchedOfficialMedia ?? 0 : 0}</td>
                   <td className="px-4 py-4"><Button size="sm" variant={selected === summary.channel ? "default" : "outline"} onClick={() => { setSelected(summary.channel); setExpanded(null); document.getElementById("channel-videos")?.scrollIntoView({ block: "start" }); }}>Inspect</Button></td>
                 </tr>)}
               </tbody>
@@ -145,6 +160,7 @@ export default function ChannelsPage() {
                 <div><dt className="font-mono text-[11px] uppercase text-muted-foreground">Duration</dt><dd className="mt-1 font-mono">{formatDuration(current.totalDurationSeconds)}</dd></div>
                 <div><dt className="font-mono text-[11px] uppercase text-muted-foreground">Captioned</dt><dd className="mt-1 font-mono">{current.withCaptions}</dd></div>
                 <div><dt className="font-mono text-[11px] uppercase text-muted-foreground">Transcripts</dt><dd className="mt-1 font-mono">{current.transcripts}</dd></div>
+                {current.channel === "Kryon Lee Carroll" && <div><dt className="font-mono text-[11px] uppercase text-muted-foreground">Official MP3s / unavailable</dt><dd className="mt-1 font-mono">{officialMedia?.matchedOfficialMedia ?? 0} / {officialMedia?.unavailableOfficialMedia ?? 0}</dd></div>}
               </dl>
             </div>
 
