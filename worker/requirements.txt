@@ -2,3 +2,4 @@ yt-dlp==2026.10.26
 webvtt-py==0.8.0
 requests==2.32.3
 beautifulsoup4==4.15.0
+lxml==6.0.2
