@@ -1,0 +1,16 @@
+{
+  "channel": "LightingClarity",
+  "status": "unresolved",
+  "officialSite": null,
+  "canonicalUrl": null,
+  "pagesScanned": 0,
+  "videoLinks": 0,
+  "directMedia": 0,
+  "documentLinks": 0,
+  "transcriptLinks": 0,
+  "evidence": [],
+  "errors": [
+    "[HTTP 404] The requested resource was not found."
+  ],
+  "records": []
+}

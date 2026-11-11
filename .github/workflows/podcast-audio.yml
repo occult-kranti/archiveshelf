@@ -1,0 +1,123 @@
+name: Podcast audio archive
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Maximum items per shard; 0 processes every episode"
+        required: true
+        default: "2"
+      model:
+        required: true
+        default: "large-v3-turbo"
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: podcast-audio-archive
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install media dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install -r worker/requirements-whisper-openai.txt
+      - name: Parse official podcast feeds
+        run: python worker/podcast_feeds.py --config config/podcast-feeds.json --output inventory/feeds --workers 2
+      - name: Verify one complete episode
+        env:
+          WHISPER_DOWNLOAD_ROOT: .models
+        run: python worker/audio_archive.py --csv inventory/feeds/podcast-episodes.csv --output smoke-output --limit 1 --backend openai --model ${{ inputs.model }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: podcast-smoke
+          path: smoke-output
+          retention-days: 2
+
+  archive:
+    needs: smoke
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    runs-on: ubuntu-latest
+    timeout-minutes: 600
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      WHISPER_DOWNLOAD_ROOT: .models
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install media dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install -r worker/requirements-whisper-openai.txt
+      - name: Parse official podcast feeds
+        run: python worker/podcast_feeds.py --config config/podcast-feeds.json --output inventory/feeds --workers 2
+      - name: Resume the previous shard when available
+        run: |
+          mkdir -p exports
+          if gh release view podcast-audio-v1 >/dev/null 2>&1; then
+            gh release download podcast-audio-v1 --pattern "podcast-audio-shard-${{ matrix.shard }}.zip" --dir "$RUNNER_TEMP/resume" --clobber || true
+            if [ -f "$RUNNER_TEMP/resume/podcast-audio-shard-${{ matrix.shard }}.zip" ]; then
+              unzip -q -o "$RUNNER_TEMP/resume/podcast-audio-shard-${{ matrix.shard }}.zip" -d exports
+            fi
+          fi
+      - name: Archive assigned episodes
+        run: python worker/audio_archive.py --csv inventory/feeds/podcast-episodes.csv --output exports --shard-index ${{ matrix.shard }} --shard-count 8 --limit ${{ inputs.limit }} --backend openai --model ${{ inputs.model }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: shard-${{ matrix.shard }}
+          path: exports
+          retention-days: 3
+
+  aggregate:
+    needs: archive
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: shard-*
+          path: artifacts
+          merge-multiple: false
+      - name: Build verification tables and release archives
+        run: python worker/aggregate_audio.py --artifacts artifacts --inventory inventory --release-dir release --expected-csv inventory/feeds/podcast-episodes.csv
+      - name: Publish episode release assets
+        run: |
+          if ! gh release view podcast-audio-v1 >/dev/null 2>&1; then
+            gh release create podcast-audio-v1 --title "Official podcast audio and transcripts" --notes "Resumable per-episode audio and transcript bundles. See inventory/AUDIO-STATUS.md for verification."
+          fi
+          gh release upload podcast-audio-v1 release/*.zip --clobber
+      - name: Commit verification tables
+        run: |
+          git config user.name "ArchiveShelf Automation"
+          git config user.email "archiveshelf@example.invalid"
+          git add inventory/AUDIO-STATUS.md inventory/audio-manifest.csv inventory/audio-verification.json inventory/feeds/summary.json inventory/feeds/FEEDS.md inventory/feeds/podcast-episodes.csv
+          if ! git diff --cached --quiet; then
+            git commit -m "Update podcast archive verification [skip ci]"
+            for attempt in 1 2 3; do
+              if git push origin main; then
+                break
+              fi
+              git pull --rebase origin main
+            done
+          fi

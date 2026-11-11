@@ -1,0 +1,23 @@
+[
+  {
+    "channel": "Sounds True",
+    "feedUrl": "https://feeds.podcastmirror.com/sounds-true-insights",
+    "episodes": 956,
+    "path": "sounds-true/videos.csv",
+    "error": null
+  },
+  {
+    "channel": "Athina Król",
+    "feedUrl": "https://feed.podbean.com/athinakrol/feed.xml",
+    "episodes": 0,
+    "path": "athina-kr-l/videos.csv",
+    "error": "HTTPSConnectionPool(host='feed.podbean.com', port=443): Read timed out. (read timeout=45)"
+  },
+  {
+    "channel": "Athina Król - Spirit Channel Podcast",
+    "feedUrl": "https://feed.podbean.com/spiritchannelpodcast/feed.xml",
+    "episodes": 0,
+    "path": "athina-kr-l-spirit-channel-podcast/videos.csv",
+    "error": "HTTPSConnectionPool(host='feed.podbean.com', port=443): Read timed out. (read timeout=45)"
+  }
+]

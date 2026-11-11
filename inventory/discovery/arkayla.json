@@ -1,0 +1,53 @@
+{
+  "channel": "Arkayla",
+  "status": "verified",
+  "officialSite": "https://www.arkayla.love",
+  "canonicalUrl": "https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+  "pagesScanned": 1,
+  "videoLinks": 0,
+  "directMedia": 0,
+  "documentLinks": 5,
+  "transcriptLinks": 0,
+  "evidence": [
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg/join",
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg/join",
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg/join",
+    "Official-site channel link: https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg/join"
+  ],
+  "errors": [],
+  "records": [
+    {
+      "type": "document",
+      "url": "https://stan.store/arkayla/p/book-a-11-session-with-me-a7256d3c",
+      "title": "Re Book",
+      "sourcePage": "https://www.arkayla.love"
+    },
+    {
+      "type": "document",
+      "url": "https://stan.store/arkayla/p/book-a-11-session-with-me-a7256d3c",
+      "title": "Re Book",
+      "sourcePage": "https://www.arkayla.love"
+    },
+    {
+      "type": "document",
+      "url": "https://stan.store/arkayla/p/book-a-11-session-with-me-a7256d3c",
+      "title": "Re Book",
+      "sourcePage": "https://www.arkayla.love"
+    },
+    {
+      "type": "document",
+      "url": "https://stan.store/arkayla/p/book-a-11-session-with-me-a7256d3c",
+      "title": "book your session",
+      "sourcePage": "https://www.arkayla.love"
+    },
+    {
+      "type": "document",
+      "url": "https://stan.store/arkayla/p/book-a-11-session-with-me-a7256d3c",
+      "title": "book your session",
+      "sourcePage": "https://www.arkayla.love"
+    }
+  ]
+}

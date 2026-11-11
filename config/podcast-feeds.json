@@ -1,0 +1,19 @@
+{
+  "feeds": [
+    {
+      "channel": "Sounds True",
+      "feedUrl": "https://feeds.podcastmirror.com/sounds-true-insights",
+      "verification": "Sounds True: Insights at the Edge, official public podcast feed"
+    },
+    {
+      "channel": "Athina Król",
+      "feedUrl": "https://feed.podbean.com/athinakrol/feed.xml",
+      "verification": "Spirit Channel with Athina Król, identified through Apple's public podcast lookup API"
+    },
+    {
+      "channel": "Athina Król - Spirit Channel Podcast",
+      "feedUrl": "https://feed.podbean.com/spiritchannelpodcast/feed.xml",
+      "verification": "Spirit Channel Podcast, identified through Apple's public podcast search API"
+    }
+  ]
+}

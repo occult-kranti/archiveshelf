@@ -11,7 +11,8 @@
       "name": "Sounds True",
       "url": "https://www.youtube.com/user/SoundsTrueVideos",
       "status": "verified",
-      "verification": "Official soundstrue.com outbound YouTube link"
+      "verification": "Official soundstrue.com outbound YouTube link",
+      "officialSite": "https://www.soundstrue.com"
     },
     {
       "name": "Athina Król",
@@ -24,6 +25,7 @@
       "url": "https://www.youtube.com/@SAMTHEILLUSIONIST",
       "status": "verified",
       "verification": "Official samtheillusionist.com outbound YouTube link",
+      "officialSite": "https://samtheillusionist.com",
       "inventorySources": ["https://samtheillusionist.com/"],
       "executionError": "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
     },
@@ -31,7 +33,8 @@
       "name": "Daniel Scranton",
       "url": "https://www.youtube.com/danscranton",
       "status": "verified",
-      "verification": "Official biography and multiple independent sources point to youtube.com/danscranton"
+      "verification": "Official biography and multiple independent sources point to youtube.com/danscranton",
+      "officialSite": "https://danielscranton.com"
     },
     {
       "name": "Pleiadian Laark…",
@@ -44,6 +47,7 @@
       "url": "https://www.youtube.com/channel/UCMiuw8FLujKn06dnlxpbWGQ",
       "status": "verified",
       "verification": "Official kryon.com video index outbound channel link",
+      "officialSite": "https://kryon.com",
       "inventorySources": [
         "http://kryon.com/u-tube/index-eng19.html",
         "http://kryon.com/u-tube/index-eng20.html"
@@ -60,6 +64,7 @@
       "url": "https://www.youtube.com/MagentaPixie2012",
       "status": "verified",
       "verification": "Official Magenta Pixie archive pages identify youtube.com/MagentaPixie2012",
+      "officialSite": "https://www.magentapixie.com",
       "inventorySources": ["https://www.magentapixie.com/video-archive.html"],
       "executionError": "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
     },
@@ -67,7 +72,8 @@
       "name": "Kristin Davies",
       "url": "https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
       "status": "verified",
-      "verification": "Official kristindaviesmedium.com outbound YouTube link"
+      "verification": "Official kristindaviesmedium.com outbound YouTube link",
+      "officialSite": "https://www.kristindaviesmedium.com"
     },
     {
       "name": "LightingClarity",
@@ -79,13 +85,15 @@
       "name": "Saraharyana",
       "url": "https://www.youtube.com/channel/UCZqVo9zuZ7_i7SnUlj__M6w",
       "status": "verified",
-      "verification": "Official saraharyana.com outbound YouTube link"
+      "verification": "Official saraharyana.com outbound YouTube link",
+      "officialSite": "https://www.saraharyana.com"
     },
     {
       "name": "Arkayla",
       "url": "https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
       "status": "verified",
-      "verification": "Official arkayla.love outbound YouTube link"
+      "verification": "Official arkayla.love outbound YouTube link",
+      "officialSite": "https://www.arkayla.love"
     }
   ]
 }

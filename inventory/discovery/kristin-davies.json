@@ -1,0 +1,43 @@
+{
+  "channel": "Kristin Davies",
+  "status": "verified",
+  "officialSite": "https://www.kristindaviesmedium.com",
+  "canonicalUrl": "https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
+  "pagesScanned": 3,
+  "videoLinks": 0,
+  "directMedia": 0,
+  "documentLinks": 4,
+  "transcriptLinks": 0,
+  "evidence": [
+    "Official-site channel link: https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
+    "Official-site channel link: https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
+    "Official-site channel link: https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw"
+  ],
+  "errors": [],
+  "records": [
+    {
+      "type": "document",
+      "url": "https://www.kristindaviesmedium.com/booking-calendar/practice-channeling-1-on-1-session",
+      "title": "",
+      "sourcePage": "https://www.kristindaviesmedium.com"
+    },
+    {
+      "type": "document",
+      "url": "https://www.kristindaviesmedium.com/booking-calendar/practice-channeling-1-on-1-session",
+      "title": "Practice Channeling 1 on 1 Session",
+      "sourcePage": "https://www.kristindaviesmedium.com"
+    },
+    {
+      "type": "document",
+      "url": "https://www.kristindaviesmedium.com/service-page/practice-channeling-1-on-1-session",
+      "title": "Read More",
+      "sourcePage": "https://www.kristindaviesmedium.com"
+    },
+    {
+      "type": "document",
+      "url": "https://www.kristindaviesmedium.com/booking-calendar/practice-channeling-1-on-1-session",
+      "title": "Add to Cart",
+      "sourcePage": "https://www.kristindaviesmedium.com"
+    }
+  ]
+}
