@@ -1,16 +1,16 @@
 # ArchiveShelf
 
-> **Delivery status:** The verified full source is packaged separately. The automated expanded-file-tree import requires reconnecting this GitHub connection with the `workflow` scope. No source import is being represented as complete here.
+> **Delivery status:** The inventory crawler, canonical manifest, generated channel/video tables, and verification report are included. The complete application is packaged separately. An automated expanded-tree import still requires reconnecting GitHub with the `workflow` scope.
 
-ArchiveShelf is a source-first research archive for authorized media. Import videos, playlists, channels, or direct media URLs; keep searchable transcripts and audio; leave video files behind.
+A source-first research archive for authorized media. Import videos, playlists, channels, or direct media URLs; keep searchable transcripts and audio; leave video files behind.
 
-## Included in the verified build
+## What is included
 
 - Responsive React library with title/channel/transcript search
 - Authenticated import jobs, live progress, cancellation, and partial-failure notes
 - MP3, M4A, WAV, or transcript-only exports
 - TXT, Markdown, JSON, SRT, and WebVTT transcripts
-- Optional `faster-whisper` fallback for missing captions
+- OpenAI Whisper as the verified default transcription backend, with faster-whisper as an alternative
 - Owner-checked audio, Markdown, per-video ZIP, and per-job ZIP downloads
 - Resumable CLI with one to three workers and organized per-video folders
 - Installable PWA, production server bundle, and Docker build
@@ -33,7 +33,7 @@ The standalone CLI uses the same `worker/archiveshelf.py` engine but writes dire
 
 ## Run the web app
 
-The platform scaffold supplies credentials in `.env`; never commit that file.
+The scaffold supplies platform credentials in `.env`; never commit that file.
 
 ```bash
 npm install
@@ -49,15 +49,15 @@ npm run build
 npm start
 ```
 
-Published hosting and object storage consume the owner’s platform quota. On-demand web ZIPs are capped at 95 MB of input audio to bound memory.
+The build packages the frontend, bundled server, worker, and pure-Python runtime dependencies. Published hosting and object storage consume the owner’s platform quota. On-demand web ZIPs are capped at 95 MB of input audio to bound memory.
 
 ### Optional local transcription
 
 ```bash
-node scripts/setup-worker.mjs --transcribe
+node scripts/setup-worker.mjs --openai
 ```
 
-This installs `faster-whisper`. The first transcription also downloads a model. In the project sandbox the package imported, but model download exceeded the verification timeout; treat this optional path as unverified until it succeeds in your environment.
+This installs the default OpenAI Whisper backend. The tiny model downloaded successfully during verification and passed the complete audio/transcript export test. Use `--transcribe-missing --whisper-backend openai` when running the worker. For the alternative CTranslate2 backend, run `node scripts/setup-worker.mjs --transcribe` and select `--whisper-backend faster-whisper`; its Hugging Face model download timed out in this sandbox and remains unverified.
 
 ## Run the CLI
 
@@ -102,9 +102,38 @@ PYTHONPATH=.python python3 worker/archiveshelf.py bundle \
   --input ./exports --output ./exports.zip
 ```
 
-## Screenshot channel intake
+## Channel inventory
 
-`config/channel-intake.json` records the visible names and the two requested exclusions: Jamie Butler and Vivek Samtani. Truncated or ambiguous names have `url: null` and `status: unresolved`. Supply exact channel URLs before using that list. No identity has been guessed from a name collision, and no third-party channel archive was downloaded during verification.
+The Channels page and `inventory/` contain the current summary, all imported video rows, CSV/JSON exports, and count verification. Canonical identities are accepted only with official-site or strong independent evidence. The requested exclusions remain Jamie Butler and Vivek Samtani.
+
+Current verified coverage:
+
+| Channel | Current scope | Earliest | Latest | Raw rows | Source items | Unique videos |
+|---|---|---|---|---|---|---|
+| Sounds True | YouTube unreachable in sandbox | — | — | 0 | 0 | 0 |
+| Athina Król | Identity unresolved | — | — | 0 | 0 | 0 |
+| SAM THE ILLUSIONIST | Official index blocked/stopped responding | — | — | 0 | 0 | 0 |
+| Daniel Scranton | YouTube unreachable in sandbox | — | — | 0 | 0 | 0 |
+| Pleiadian Laark… | Identity unresolved | — | — | 0 | 0 | 0 |
+| Kryon Lee Carroll | Official 2019–2020 creator indexes | 2019-01-11 | 2020-03-23 | 199 | 197 | 195 |
+| Rachel & Kevin P… | Identity unresolved | — | — | 0 | 0 | 0 |
+| Magenta Pixie | Official archive returned HTTP 403 | — | — | 0 | 0 | 0 |
+| Kristin Davies | YouTube unreachable in sandbox | — | — | 0 | 0 | 0 |
+| LightingClarity | Identity unresolved | — | — | 0 | 0 | 0 |
+| Saraharyana | YouTube unreachable in sandbox | — | — | 0 | 0 | 0 |
+| Arkayla | YouTube unreachable in sandbox | — | — | 0 | 0 | 0 |
+
+The three count layers are intentional: Kryon’s indexes contain 199 raw rows and 197 numbered items representing 195 distinct YouTube IDs. Four duplicate rows/links were removed. This verifies the 2019–2020 creator indexes only; it is not a claim about the channel’s complete upload count. See `inventory/CHANNELS.md`, `inventory/VIDEOS.md`, and `inventory/verification.json` for every row and error.
+
+Regenerate the inventory and app data with:
+
+```bash
+npm run inventory -- --manifest config/channel-intake.json --output inventory --delay 1
+mkdir -p public/inventory
+cp inventory/channel-summary.json inventory/videos.json inventory/channels.csv inventory/videos.csv inventory/verification.json public/inventory/
+```
+
+Use `--full-metadata` for per-video YouTube metrics and `--force-network` only in an environment where public YouTube is reachable. No proxy rotation, credential harvesting, or anti-bot workaround is included. Third-party audio transcription remains disabled until archiving authorization is explicit; the existing authorized-media worker can process those sources later.
 
 ## Test
 
@@ -116,7 +145,7 @@ npm run build
 npm audit --omit=dev
 ```
 
-`bash scripts/stress-test.sh` generates original speech/video fixtures, starts a local HTTP server, processes three files with three workers, injects a 404, verifies that no video remains, and checks resume behavior. See `docs/TESTING.md` for the full verification record and known limits.
+`bash scripts/stress-test.sh` generates original speech/video fixtures, starts a local HTTP server on a free port, processes three files with three workers, injects a 404, verifies that no video remains, and checks resume behavior. See `docs/TESTING.md` for the full verification record and known limits.
 
 ## Docker
 
@@ -126,6 +155,18 @@ docker run --env-file .env -p 3000:3000 archiveshelf
 ```
 
 The image includes Node 20, Python 3, FFmpeg, the built web app, and worker dependencies. Supply production environment values at runtime; do not bake `.env` into an image.
+
+## Source map
+
+- `src/` — React screens, components, hooks, and styling
+- `api/` — authenticated routers, job controller, storage, and download routes
+- `contracts/` — validated request schemas shared across the boundary
+- `db/` — Drizzle schema
+- `worker/` — standalone archive engine, requirements, and unit tests
+- `scripts/` — worker setup, production packaging, and reproducible stress test
+- `config/` — verified and unresolved channel intake with evidence notes
+- `inventory/` — generated channel/video tables, CSV/JSON, and count verification
+- `docs/` — research decisions and verification evidence
 
 ## Access and licensing
 
