@@ -4,25 +4,23 @@
   "identityStatus": "verified",
   "verification": "Official samtheillusionist.com outbound YouTube link",
   "scopes": [
-    "not_crawled"
+    "creator_session_index"
   ],
-  "expectedCount": null,
-  "indexEntries": 0,
-  "sourceItems": 0,
-  "totalVideos": 0,
-  "earliestVideo": null,
-  "latestVideo": null,
-  "metadataComplete": 0,
-  "transcripts": 0,
+  "expectedCount": 257,
+  "indexEntries": 257,
+  "sourceItems": 257,
+  "totalVideos": 257,
+  "earliestVideo": "2021-01-07",
+  "latestVideo": "2024-08-26",
+  "metadataComplete": 257,
+  "transcripts": 257,
   "totalDurationSeconds": 0,
   "totalViews": 0,
   "totalLikes": 0,
   "totalComments": 0,
   "withCaptions": 0,
   "duplicatesRemoved": 0,
-  "errors": [
-    "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
-  ],
+  "errors": [],
   "channelWideVerified": false,
-  "coverageNote": "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+  "coverageNote": "257 unique videos from 257 creator-index items; channel-wide count unknown"
 }
