@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-11-11T23:11:35.461194+00:00",
+  "channels": [
+    {
+      "channel": "SAM THE ILLUSIONIST",
+      "url": "https://www.youtube.com/@SAMTHEILLUSIONIST",
+      "identityStatus": "verified",
+      "verification": "Official samtheillusionist.com outbound YouTube link",
+      "scopes": [
+        "creator_session_index"
+      ],
+      "expectedCount": 257,
+      "indexEntries": 257,
+      "sourceItems": 257,
+      "totalVideos": 257,
+      "earliestVideo": "2021-01-07",
+      "latestVideo": "2024-08-26",
+      "metadataComplete": 257,
+      "transcripts": 257,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [],
+      "channelWideVerified": false,
+      "coverageNote": "257 unique videos from 257 creator-index items; channel-wide count unknown"
+    }
+  ],
+  "totals": {
+    "channels": 1,
+    "resolvedChannels": 1,
+    "videos": 257,
+    "transcripts": 257,
+    "channelWideVerified": 0
+  },
+  "audioExecution": "Not run for third-party channels because authorization was not confirmed"
+}

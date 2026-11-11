@@ -1,0 +1,2 @@
+channel,url,identityStatus,verification,scopes,expectedCount,indexEntries,sourceItems,totalVideos,earliestVideo,latestVideo,metadataComplete,transcripts,totalDurationSeconds,totalViews,totalLikes,totalComments,withCaptions,duplicatesRemoved,errors,channelWideVerified,coverageNote
+SAM THE ILLUSIONIST,https://www.youtube.com/@SAMTHEILLUSIONIST,verified,Official samtheillusionist.com outbound YouTube link,creator_session_index,257,257,257,257,2021-01-07,2024-08-26,257,257,0,0,0,0,0,0,,False,257 unique videos from 257 creator-index items; channel-wide count unknown
