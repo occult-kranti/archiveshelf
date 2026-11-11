@@ -348,6 +348,7 @@ def download_audio(url: str, item_dir: Path, audio_format: str) -> Path:
         }],
         "keepvideo": False,
         "overwrites": True,
+        "postprocessor_args": ["-ac", "1", "-ar", "16000"],
     })
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])

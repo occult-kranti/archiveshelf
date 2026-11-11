@@ -133,6 +133,12 @@ cp inventory/channel-summary.json inventory/videos.json inventory/channels.csv i
 
 Use `--full-metadata` for per-video YouTube metrics and `--force-network` only in an environment where public YouTube is reachable. No proxy rotation, credential harvesting, or anti-bot workaround is included. Third-party audio transcription remains disabled until archiving authorization is explicit; the existing authorized-media worker can process those sources later.
 
+## Authorized audio archive workflow
+
+`.github/workflows/audio-archive.yml` runs a smoke test, four parallel shards, and one aggregation job. It processes every row in `inventory/videos.csv` by default, resumes prior release bundles, prefers captions, and uses faster-whisper for missing transcripts. Release assets contain per-video audio and all transcript formats; `inventory/AUDIO-STATUS.md`, `audio-manifest.csv`, and `audio-verification.json` record expected, attempted, complete, partial, failed, and resumed counts.
+
+Run it from GitHub’s Actions tab with **Authorized audio archive → Run workflow**. A single-video smoke job must pass before any shard starts. Keep the default limit of `0` to process all 195 indexed videos, or use a small limit for another bounded test. Private-repository Actions usage, artifact storage, and release storage may incur charges.
+
 ## Test
 
 ```bash

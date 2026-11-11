@@ -10,6 +10,7 @@ Verified on 12 November 2026 in the project sandbox. No third-party channel arch
 | Channel inventory | Official Kryon 2019–2020 indexes | **199 raw rows / 197 numbered items / 195 unique video IDs**, four duplicates removed, earliest 2019-01-11, latest 2020-03-23 |
 | Channel identity verification | Requested channel list | **8 verified / 4 unresolved / 2 excluded**; unresolved names were not guessed |
 | OpenAI Whisper integration | Original four-second speech fixture, tiny model | **Complete**; `openai:tiny` produced MP3 + TXT/MD/JSON/SRT/VTT with no video retained; text: “Archive shelf keeps research organized and searchable.” |
+| Shard wrapper and aggregation | One authorized fixture and one release ZIP | Complete status, one audio and one transcript, `allAttempted=true`, valid ZIP and verification table |
 | Engine option comparison | `yt-dlp` and direct FFmpeg extraction of the same CC0 clip | Both produced identical **41,042-byte MP3** files |
 | Engine integration | CC0 URL through the standalone worker | Audio, metadata, and manifest only; no video retained |
 | Parallel stress | Six local files plus a deliberate 404, three workers | Six MP3s, one isolated failure, zero retained videos; **10 seconds** |

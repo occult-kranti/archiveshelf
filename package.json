@@ -10,6 +10,8 @@
     "test:worker": "PYTHONPATH=.python python3 -m unittest discover -s worker -p 'test_*.py' -v",
     "test:stress": "bash scripts/stress-test.sh",
     "inventory": "PYTHONPATH=.python:worker python3 worker/channel_inventory.py",
+    "audio:archive": "PYTHONPATH=.python:worker python3 worker/audio_archive.py",
+    "audio:aggregate": "PYTHONPATH=.python:worker python3 worker/aggregate_audio.py",
     "archive": "PYTHONPATH=.python python3 worker/archiveshelf.py archive",
     "lint": "eslint .",
     "preview": "vite preview",
