@@ -1,0 +1,91 @@
+{
+  "note": "Canonical URLs are accepted only after official-site or strong independent verification. Jamie Butler and Vivek Samtani are excluded by request. Direct YouTube access was unavailable in the verification sandbox; adapter results are recorded per channel.",
+  "executionPolicy": "metadata_and_available_captions_only",
+  "directYouTubeStatus": {
+    "status": "blocked",
+    "reason": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+  },
+  "excluded": ["Jamie Butler", "Vivek Samtani"],
+  "channels": [
+    {
+      "name": "Sounds True",
+      "url": "https://www.youtube.com/user/SoundsTrueVideos",
+      "status": "verified",
+      "verification": "Official soundstrue.com outbound YouTube link"
+    },
+    {
+      "name": "Athina Król",
+      "url": null,
+      "status": "unresolved",
+      "verification": "No canonical channel URL verified"
+    },
+    {
+      "name": "SAM THE ILLUSIONIST",
+      "url": "https://www.youtube.com/@SAMTHEILLUSIONIST",
+      "status": "verified",
+      "verification": "Official samtheillusionist.com outbound YouTube link",
+      "inventorySources": ["https://samtheillusionist.com/"],
+      "executionError": "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+    },
+    {
+      "name": "Daniel Scranton",
+      "url": "https://www.youtube.com/danscranton",
+      "status": "verified",
+      "verification": "Official biography and multiple independent sources point to youtube.com/danscranton"
+    },
+    {
+      "name": "Pleiadian Laark…",
+      "url": null,
+      "status": "unresolved",
+      "verification": "Truncated screenshot name; no canonical channel URL verified"
+    },
+    {
+      "name": "Kryon Lee Carroll",
+      "url": "https://www.youtube.com/channel/UCMiuw8FLujKn06dnlxpbWGQ",
+      "status": "verified",
+      "verification": "Official kryon.com video index outbound channel link",
+      "inventorySources": [
+        "http://kryon.com/u-tube/index-eng19.html",
+        "http://kryon.com/u-tube/index-eng20.html"
+      ]
+    },
+    {
+      "name": "Rachel & Kevin P…",
+      "url": null,
+      "status": "unresolved",
+      "verification": "Truncated screenshot name; no canonical channel URL verified"
+    },
+    {
+      "name": "Magenta Pixie",
+      "url": "https://www.youtube.com/MagentaPixie2012",
+      "status": "verified",
+      "verification": "Official Magenta Pixie archive pages identify youtube.com/MagentaPixie2012",
+      "inventorySources": ["https://www.magentapixie.com/video-archive.html"],
+      "executionError": "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
+    },
+    {
+      "name": "Kristin Davies",
+      "url": "https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
+      "status": "verified",
+      "verification": "Official kristindaviesmedium.com outbound YouTube link"
+    },
+    {
+      "name": "LightingClarity",
+      "url": null,
+      "status": "unresolved",
+      "verification": "No canonical channel URL verified"
+    },
+    {
+      "name": "Saraharyana",
+      "url": "https://www.youtube.com/channel/UCZqVo9zuZ7_i7SnUlj__M6w",
+      "status": "verified",
+      "verification": "Official saraharyana.com outbound YouTube link"
+    },
+    {
+      "name": "Arkayla",
+      "url": "https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+      "status": "verified",
+      "verification": "Official arkayla.love outbound YouTube link"
+    }
+  ]
+}
