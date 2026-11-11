@@ -31,12 +31,12 @@ jobs:
           python -m pip install -r worker/requirements-transcribe.txt
       - name: Verify one complete audio and transcript
         env:
-          WHISPER_DOWNLOAD_ROOT: ${{ runner.temp }}/whisper-models
-        run: python worker/audio_archive.py --csv inventory/videos.csv --output "$RUNNER_TEMP/smoke" --limit 1 --backend faster-whisper
+          WHISPER_DOWNLOAD_ROOT: .models
+        run: python worker/audio_archive.py --csv inventory/videos.csv --output smoke-output --limit 1 --backend faster-whisper
       - uses: actions/upload-artifact@v4
         with:
           name: audio-smoke
-          path: ${{ runner.temp }}/smoke
+          path: smoke-output
           retention-days: 2
 
   archive:
@@ -48,7 +48,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      WHISPER_DOWNLOAD_ROOT: ${{ runner.temp }}/whisper-models
+      WHISPER_DOWNLOAD_ROOT: .models
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
