@@ -19,6 +19,7 @@ def main() -> int:
     parser.add_argument("--shard-count", type=int, default=1)
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--backend", choices=("openai", "faster-whisper"), default="faster-whisper")
+    parser.add_argument("--model", default="tiny", help="Whisper model name, e.g. tiny or large-v3-turbo")
     parser.add_argument("--allow-private-urls", action="store_true", help="Only for local fixtures you control")
     args = parser.parse_args()
     if not 1 <= args.shard_count <= 8 or not 0 <= args.shard_index < args.shard_count:
@@ -35,16 +36,29 @@ def main() -> int:
         audio_format="mp3",
         transcribe_missing=True,
         whisper_backend=args.backend,
-        whisper_model="tiny",
+        whisper_model=args.model,
         concurrency=1,
         max_items=len(selected) or 1,
         allow_private_urls=args.allow_private_urls,
     )
     results: list[dict] = []
     for row in selected:
-        url = row["webpage_url"]
+        url = row.get("media_url") or row["webpage_url"]
+        if row.get("media_status") == "unavailable":
+            results.append({
+                "version": 1, "status": "failed", "url": url, "id": row.get("external_id"),
+                "title": row.get("title"), "channel": row.get("channel"), "artifacts": {},
+                "transcriptText": "", "sourceItemNumber": row.get("source_item_number"), "scope": row.get("scope"),
+                "errors": [{"stage": "official_media", "code": "official_media_unavailable", "message": "No matching creator-hosted MP3 was verified"}],
+            })
+            event("shard_progress", shard=args.shard_index, completed=len(results), total=len(selected), status="failed")
+            continue
         try:
             manifest = process_video(url, options)
+            manifest["title"] = row.get("title") or manifest.get("title")
+            manifest["channel"] = row.get("channel") or manifest.get("channel")
+            manifest["webpageUrl"] = row["webpage_url"]
+            manifest["officialMediaUrl"] = url if row.get("media_url") else None
         except Exception as error:
             manifest = {
                 "version": 1,
@@ -74,6 +88,7 @@ def main() -> int:
         "transcripts": sum(bool(item.get("artifacts", {}).get("transcriptTxt")) for item in results),
         "resumed": sum(bool(item.get("resumed")) for item in results),
         "backend": args.backend,
+        "model": args.model,
         "results": results,
     }
     (output / "summary.json").write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding="utf-8")

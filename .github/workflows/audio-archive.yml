@@ -7,6 +7,10 @@ on:
         description: "Maximum items per shard; 0 processes every indexed video"
         required: true
         default: "0"
+      model:
+        description: "OpenAI Whisper model used for missing transcripts"
+        required: true
+        default: "large-v3-turbo"
 
 permissions:
   contents: write
@@ -28,11 +32,13 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          python -m pip install -r worker/requirements-transcribe.txt
+          python -m pip install -r worker/requirements-whisper-openai.txt
+      - name: Resolve creator-hosted MP3 downloads
+        run: python worker/kryon_official.py --input inventory/videos.csv --output inventory/official-videos.csv --summary inventory/official-media-summary.json
       - name: Verify one complete audio and transcript
         env:
           WHISPER_DOWNLOAD_ROOT: .models
-        run: python worker/audio_archive.py --csv inventory/videos.csv --output smoke-output --limit 1 --backend faster-whisper
+        run: python worker/audio_archive.py --csv inventory/official-videos.csv --output smoke-output --limit 1 --backend openai --model ${{ inputs.model }}
       - uses: actions/upload-artifact@v4
         with:
           name: audio-smoke
@@ -44,8 +50,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shard: [0, 1, 2, 3]
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
     runs-on: ubuntu-latest
+    timeout-minutes: 600
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       WHISPER_DOWNLOAD_ROOT: .models
@@ -58,7 +65,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          python -m pip install -r worker/requirements-transcribe.txt
+          python -m pip install -r worker/requirements-whisper-openai.txt
       - name: Resume the previous shard when available
         run: |
           mkdir -p exports
@@ -68,8 +75,10 @@ jobs:
               unzip -q -o "$RUNNER_TEMP/resume/audio-transcripts-shard-${{ matrix.shard }}.zip" -d exports
             fi
           fi
+      - name: Resolve creator-hosted MP3 downloads
+        run: python worker/kryon_official.py --input inventory/videos.csv --output inventory/official-videos.csv --summary inventory/official-media-summary.json
       - name: Archive assigned videos
-        run: python worker/audio_archive.py --csv inventory/videos.csv --output exports --shard-index ${{ matrix.shard }} --shard-count 4 --limit ${{ inputs.limit }} --backend faster-whisper
+        run: python worker/audio_archive.py --csv inventory/official-videos.csv --output exports --shard-index ${{ matrix.shard }} --shard-count 8 --limit ${{ inputs.limit }} --backend openai --model ${{ inputs.model }}
       - uses: actions/upload-artifact@v4
         with:
           name: shard-${{ matrix.shard }}
@@ -103,7 +112,7 @@ jobs:
         run: |
           git config user.name "ArchiveShelf Automation"
           git config user.email "archiveshelf@example.invalid"
-          git add inventory/AUDIO-STATUS.md inventory/audio-manifest.csv inventory/audio-verification.json
+          git add inventory/AUDIO-STATUS.md inventory/audio-manifest.csv inventory/audio-verification.json inventory/official-videos.csv inventory/official-media-summary.json
           if ! git diff --cached --quiet; then
             git commit -m "Update audio archive verification [skip ci]"
             for attempt in 1 2 3; do

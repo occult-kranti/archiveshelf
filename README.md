@@ -135,7 +135,7 @@ Use `--full-metadata` for per-video YouTube metrics and `--force-network` only i
 
 ## Authorized audio archive workflow
 
-`.github/workflows/audio-archive.yml` runs a smoke test, four parallel shards, and one aggregation job. It processes every row in `inventory/videos.csv` by default, resumes prior release bundles, prefers captions, and uses faster-whisper for missing transcripts. Release assets contain per-video audio and all transcript formats; `inventory/AUDIO-STATUS.md`, `audio-manifest.csv`, and `audio-verification.json` record expected, attempted, complete, partial, failed, and resumed counts.
+`.github/workflows/audio-archive.yml` runs a smoke test, eight parallel shards, and one aggregation job. It first resolves creator-hosted MP3s by year, location, and title, then processes every matched row in `inventory/official-videos.csv` by default, resumes prior release bundles, prefers captions, and uses OpenAI Whisper `large-v3-turbo` by default for higher-accuracy transcription on cloud runners. It does not fall back to YouTube’s anti-bot challenge. Release assets contain per-video audio and all transcript formats; `inventory/AUDIO-STATUS.md`, `audio-manifest.csv`, `official-media-summary.json`, and `audio-verification.json` record matched, attempted, complete, partial, failed, unavailable, and resumed counts.
 
 Run it from GitHub’s Actions tab with **Authorized audio archive → Run workflow**. A single-video smoke job must pass before any shard starts. Keep the default limit of `0` to process all 195 indexed videos, or use a small limit for another bounded test. Private-repository Actions usage, artifact storage, and release storage may incur charges.
 
