@@ -1,0 +1,27 @@
+{
+  "channel": "Kryon Lee Carroll",
+  "url": "https://www.youtube.com/channel/UCMiuw8FLujKn06dnlxpbWGQ",
+  "identityStatus": "verified",
+  "verification": "Official kryon.com video index outbound channel link",
+  "scopes": [
+    "creator_index_2019",
+    "creator_index_2020"
+  ],
+  "expectedCount": null,
+  "indexEntries": 199,
+  "sourceItems": 197,
+  "totalVideos": 195,
+  "earliestVideo": "2019-01-11",
+  "latestVideo": "2020-03-23",
+  "metadataComplete": 195,
+  "transcripts": 0,
+  "totalDurationSeconds": 0,
+  "totalViews": 0,
+  "totalLikes": 0,
+  "totalComments": 0,
+  "withCaptions": 0,
+  "duplicatesRemoved": 4,
+  "errors": [],
+  "channelWideVerified": false,
+  "coverageNote": "195 unique videos from 197 creator-index items; channel-wide count unknown"
+}

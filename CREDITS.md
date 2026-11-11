@@ -7,7 +7,8 @@ ArchiveShelf is an original implementation. BeyondTube's public landing page and
 | [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Public-source metadata, playlist, caption, and media extraction | Unlicense |
 | [FFmpeg](https://ffmpeg.org/) | Audio extraction and local test-media generation | LGPL/GPL depending on build; external executable, not redistributed in source |
 | [webvtt-py](https://github.com/glut23/webvtt-py) | WebVTT caption parsing | MIT |
-| [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | Optional local transcription fallback | MIT; model downloads are separate and subject to their model terms |
+| [OpenAI Whisper](https://github.com/openai/whisper) | Default local speech transcription backend | MIT for code and model weights; official checkpoint verified by SHA-256 |
+| [faster-whisper](https://github.com/SYSTRAN/faster-whisper) | Alternative local transcription fallback | MIT; model downloads are separate and subject to their model terms |
 | [Hono](https://hono.dev/) | Server routes | MIT |
 | [tRPC](https://trpc.io/) | Typed web API | MIT |
 | [Drizzle ORM](https://orm.drizzle.team/) | Typed database access | Apache-2.0 |

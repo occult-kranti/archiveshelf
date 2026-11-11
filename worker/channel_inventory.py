@@ -88,6 +88,8 @@ def video_id(url: str) -> str:
 
 def iso_date(month: str, day: str, year: str) -> str:
     normalized = month.upper()[:3]
+    if normalized == "SEP":
+        normalized = "SEP"
     return f"{int(year):04d}-{MONTHS[normalized]:02d}-{int(day):02d}"
 
 
@@ -134,14 +136,16 @@ def crawl_kryon(channel: dict[str, Any], session: requests.Session, delay: float
             if not anchors or not number or not date:
                 continue
             anchor = next((a for a in anchors if a.get_text(" ", strip=True).strip('"“” ')), anchors[0])
-            location = text[number.end():date.start()].strip(" –—-")
+            location = ""
+            if date:
+                location = text[number.end() if number else 0:date.start()].strip(" –—-")
             title = anchor.get_text(" ", strip=True).strip('"“” ')
             records.append(Video(
                 channel=channel["name"], scope=f"creator_index_{year}",
                 external_id=video_id(anchor["href"]), title=title,
                 webpage_url=anchor["href"], source_url=source,
                 source_item_number=number.group(1),
-                upload_date=iso_date(*date.groups()),
+                upload_date=iso_date(*date.groups()) if date else None,
                 location=location or None,
                 metadata_status="creator_index",
             ))

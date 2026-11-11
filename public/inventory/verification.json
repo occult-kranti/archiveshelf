@@ -1,0 +1,348 @@
+{
+  "generatedAt": "2026-11-11T19:53:29.121771+00:00",
+  "channels": [
+    {
+      "channel": "Sounds True",
+      "url": "https://www.youtube.com/user/SoundsTrueVideos",
+      "identityStatus": "verified",
+      "verification": "Official soundstrue.com outbound YouTube link",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+    },
+    {
+      "channel": "Athina Król",
+      "url": null,
+      "identityStatus": "unresolved",
+      "verification": "No canonical channel URL verified",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Unresolved identity; skipped rather than guessing"
+    },
+    {
+      "channel": "SAM THE ILLUSIONIST",
+      "url": "https://www.youtube.com/@SAMTHEILLUSIONIST",
+      "identityStatus": "verified",
+      "verification": "Official samtheillusionist.com outbound YouTube link",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+    },
+    {
+      "channel": "Daniel Scranton",
+      "url": "https://www.youtube.com/danscranton",
+      "identityStatus": "verified",
+      "verification": "Official biography and multiple independent sources point to youtube.com/danscranton",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+    },
+    {
+      "channel": "Pleiadian Laark…",
+      "url": null,
+      "identityStatus": "unresolved",
+      "verification": "Truncated screenshot name; no canonical channel URL verified",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Unresolved identity; skipped rather than guessing"
+    },
+    {
+      "channel": "Kryon Lee Carroll",
+      "url": "https://www.youtube.com/channel/UCMiuw8FLujKn06dnlxpbWGQ",
+      "identityStatus": "verified",
+      "verification": "Official kryon.com video index outbound channel link",
+      "scopes": [
+        "creator_index_2019",
+        "creator_index_2020"
+      ],
+      "expectedCount": null,
+      "indexEntries": 199,
+      "sourceItems": 197,
+      "totalVideos": 195,
+      "earliestVideo": "2019-01-11",
+      "latestVideo": "2020-03-23",
+      "metadataComplete": 195,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 4,
+      "errors": [],
+      "channelWideVerified": false,
+      "coverageNote": "195 unique videos from 197 creator-index items; channel-wide count unknown"
+    },
+    {
+      "channel": "Rachel & Kevin P…",
+      "url": null,
+      "identityStatus": "unresolved",
+      "verification": "Truncated screenshot name; no canonical channel URL verified",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Unresolved identity; skipped rather than guessing"
+    },
+    {
+      "channel": "Magenta Pixie",
+      "url": "https://www.youtube.com/MagentaPixie2012",
+      "identityStatus": "verified",
+      "verification": "Official Magenta Pixie archive pages identify youtube.com/MagentaPixie2012",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
+    },
+    {
+      "channel": "Kristin Davies",
+      "url": "https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
+      "identityStatus": "verified",
+      "verification": "Official kristindaviesmedium.com outbound YouTube link",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+    },
+    {
+      "channel": "LightingClarity",
+      "url": null,
+      "identityStatus": "unresolved",
+      "verification": "No canonical channel URL verified",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Unresolved identity; skipped rather than guessing"
+    },
+    {
+      "channel": "Saraharyana",
+      "url": "https://www.youtube.com/channel/UCZqVo9zuZ7_i7SnUlj__M6w",
+      "identityStatus": "verified",
+      "verification": "Official saraharyana.com outbound YouTube link",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+    },
+    {
+      "channel": "Arkayla",
+      "url": "https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+      "identityStatus": "verified",
+      "verification": "Official arkayla.love outbound YouTube link",
+      "scopes": [
+        "not_crawled"
+      ],
+      "expectedCount": null,
+      "indexEntries": 0,
+      "sourceItems": 0,
+      "totalVideos": 0,
+      "earliestVideo": null,
+      "latestVideo": null,
+      "metadataComplete": 0,
+      "transcripts": 0,
+      "totalDurationSeconds": 0,
+      "totalViews": 0,
+      "totalLikes": 0,
+      "totalComments": 0,
+      "withCaptions": 0,
+      "duplicatesRemoved": 0,
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
+      "channelWideVerified": false,
+      "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+    }
+  ],
+  "totals": {
+    "channels": 12,
+    "resolvedChannels": 8,
+    "videos": 195,
+    "transcripts": 0,
+    "channelWideVerified": 0
+  },
+  "audioExecution": "Not run for third-party channels because authorization was not confirmed"
+}

@@ -1,7 +1,5 @@
 # ArchiveShelf
 
-> **Delivery status:** The inventory crawler, canonical manifest, generated channel/video tables, and verification report are included. The complete application is packaged separately. An automated expanded-tree import still requires reconnecting GitHub with the `workflow` scope.
-
 A source-first research archive for authorized media. Import videos, playlists, channels, or direct media URLs; keep searchable transcripts and audio; leave video files behind.
 
 ## What is included
@@ -10,7 +8,7 @@ A source-first research archive for authorized media. Import videos, playlists, 
 - Authenticated import jobs, live progress, cancellation, and partial-failure notes
 - MP3, M4A, WAV, or transcript-only exports
 - TXT, Markdown, JSON, SRT, and WebVTT transcripts
-- OpenAI Whisper as the verified default transcription backend, with faster-whisper as an alternative
+- Optional `faster-whisper` fallback for missing captions
 - Owner-checked audio, Markdown, per-video ZIP, and per-job ZIP downloads
 - Resumable CLI with one to three workers and organized per-video folders
 - Installable PWA, production server bundle, and Docker build
@@ -31,9 +29,9 @@ React UI ── tRPC ── authenticated job router ── Python worker ──
 
 The standalone CLI uses the same `worker/archiveshelf.py` engine but writes directly to disk and does not require Kimi authentication, MySQL, or object storage.
 
-## Run the web app
+## Run the web app here
 
-The scaffold supplies platform credentials in `.env`; never commit that file.
+The scaffold already supplies platform credentials in `.env`; never commit that file.
 
 ```bash
 npm install
@@ -138,14 +136,14 @@ Use `--full-metadata` for per-video YouTube metrics and `--force-network` only i
 ## Test
 
 ```bash
-npm run check
-npm run test:worker
-npm run test:stress
-npm run build
-npm audit --omit=dev
+npm run check          # TypeScript
+npm run test:worker    # Python unit tests
+npm run test:stress    # Local parallel/failure/resume test
+npm run build          # Production bundle + cold-start assets
+npm audit --omit=dev   # Production dependency audit
 ```
 
-`bash scripts/stress-test.sh` generates original speech/video fixtures, starts a local HTTP server on a free port, processes three files with three workers, injects a 404, verifies that no video remains, and checks resume behavior. See `docs/TESTING.md` for the full verification record and known limits.
+`bash scripts/stress-test.sh` generates original speech/video fixtures, starts a local HTTP server, processes three files with three workers, injects a 404, verifies that no video remains, and checks resume behavior. See [docs/TESTING.md](docs/TESTING.md) for the full live verification record and known limits.
 
 ## Docker
 
@@ -172,4 +170,4 @@ The image includes Node 20, Python 3, FFmpeg, the built web app, and worker depe
 
 Use the tool only for media you own, have permission to archive, or are otherwise authorized to copy. It does not bypass logins, paywalls, anti-bot systems, geographic restrictions, or rate limits. Restricted items fail visibly and the batch continues. Review the source platform’s current terms before archiving.
 
-Original project code is MIT-licensed. Third-party components and reference boundaries are listed in `CREDITS.md`.
+Original project code is MIT-licensed. Third-party components and reference boundaries are listed in [CREDITS.md](CREDITS.md).

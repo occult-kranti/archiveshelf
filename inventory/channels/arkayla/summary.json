@@ -1,0 +1,28 @@
+{
+  "channel": "Arkayla",
+  "url": "https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
+  "identityStatus": "verified",
+  "verification": "Official arkayla.love outbound YouTube link",
+  "scopes": [
+    "not_crawled"
+  ],
+  "expectedCount": null,
+  "indexEntries": 0,
+  "sourceItems": 0,
+  "totalVideos": 0,
+  "earliestVideo": null,
+  "latestVideo": null,
+  "metadataComplete": 0,
+  "transcripts": 0,
+  "totalDurationSeconds": 0,
+  "totalViews": 0,
+  "totalLikes": 0,
+  "totalComments": 0,
+  "withCaptions": 0,
+  "duplicatesRemoved": 0,
+  "errors": [
+    "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+  ],
+  "channelWideVerified": false,
+  "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+}

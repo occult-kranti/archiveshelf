@@ -1,0 +1,28 @@
+{
+  "channel": "SAM THE ILLUSIONIST",
+  "url": "https://www.youtube.com/@SAMTHEILLUSIONIST",
+  "identityStatus": "verified",
+  "verification": "Official samtheillusionist.com outbound YouTube link",
+  "scopes": [
+    "not_crawled"
+  ],
+  "expectedCount": null,
+  "indexEntries": 0,
+  "sourceItems": 0,
+  "totalVideos": 0,
+  "earliestVideo": null,
+  "latestVideo": null,
+  "metadataComplete": 0,
+  "transcripts": 0,
+  "totalDurationSeconds": 0,
+  "totalViews": 0,
+  "totalLikes": 0,
+  "totalComments": 0,
+  "withCaptions": 0,
+  "duplicatesRemoved": 0,
+  "errors": [
+    "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+  ],
+  "channelWideVerified": false,
+  "coverageNote": "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+}

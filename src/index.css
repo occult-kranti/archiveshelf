@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primitive palette */
+    --primitive-paper: oklch(0.985 0.004 85);
+    --primitive-ink: oklch(0.25 0.018 55);
+    --primitive-clay: oklch(0.57 0.17 42);
+    --primitive-linen: oklch(0.95 0.012 78);
+
+    /* Semantic OKLCH channels consumed by Tailwind */
+    --background: 0.985 0.004 85;
+    --foreground: 0.25 0.018 55;
+    --card: 0.985 0.004 85;
+    --card-foreground: 0.25 0.018 55;
+    --popover: 0.985 0.004 85;
+    --popover-foreground: 0.25 0.018 55;
+    --primary: 0.57 0.17 42;
+    --primary-foreground: 0.99 0.004 85;
+    --secondary: 0.94 0.012 78;
+    --secondary-foreground: 0.29 0.018 55;
+    --muted: 0.95 0.01 78;
+    --muted-foreground: 0.46 0.016 55;
+    --accent: 0.925 0.027 67;
+    --accent-foreground: 0.37 0.07 43;
+    --destructive: 0.52 0.19 28;
+    --destructive-foreground: 0.99 0.004 85;
+    --border: 0.87 0.015 70;
+    --input: 0.87 0.015 70;
+    --ring: 0.57 0.17 42;
+    --radius: 0.625rem;
+    --sidebar-background: 0.962 0.011 78;
+    --sidebar-foreground: 0.25 0.018 55;
+    --sidebar-primary: 0.57 0.17 42;
+    --sidebar-primary-foreground: 0.99 0.004 85;
+    --sidebar-accent: 0.925 0.027 67;
+    --sidebar-accent-foreground: 0.37 0.07 43;
+    --sidebar-border: 0.87 0.015 70;
+    --sidebar-ring: 0.57 0.17 42;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: "Hanken Grotesk", sans-serif;
+    background: var(--primitive-paper);
+  }
+
+  body {
+    @apply min-h-dvh bg-background text-foreground antialiased;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  button,
+  [role="button"],
+  a,
+  select,
+  input[type="checkbox"],
+  input[type="radio"] {
+    cursor: pointer;
+  }
+
+  input,
+  textarea {
+    cursor: text;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primitive-clay);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: oklch(0.85 0.07 62);
+    color: var(--primitive-ink);
+  }
+
+  .font-mono {
+    font-family: "IBM Plex Mono", monospace;
+  }
+}
+
+@media (max-width: 1023px), (pointer: coarse) {
+  [data-slot="button"],
+  [role="group"] button {
+    min-height: 44px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

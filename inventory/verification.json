@@ -6,7 +6,9 @@
       "url": "https://www.youtube.com/user/SoundsTrueVideos",
       "identityStatus": "verified",
       "verification": "Official soundstrue.com outbound YouTube link",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -21,7 +23,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."],
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
       "channelWideVerified": false,
       "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
     },
@@ -30,7 +34,9 @@
       "url": null,
       "identityStatus": "unresolved",
       "verification": "No canonical channel URL verified",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -45,7 +51,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Canonical channel URL is unresolved"],
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
       "channelWideVerified": false,
       "coverageNote": "Unresolved identity; skipped rather than guessing"
     },
@@ -54,7 +62,9 @@
       "url": "https://www.youtube.com/@SAMTHEILLUSIONIST",
       "identityStatus": "verified",
       "verification": "Official samtheillusionist.com outbound YouTube link",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -69,7 +79,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."],
+      "errors": [
+        "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
+      ],
       "channelWideVerified": false,
       "coverageNote": "The official session index stopped responding or returned HTTP 403 during bounded verification. No transcript completeness is claimed."
     },
@@ -78,7 +90,9 @@
       "url": "https://www.youtube.com/danscranton",
       "identityStatus": "verified",
       "verification": "Official biography and multiple independent sources point to youtube.com/danscranton",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -93,7 +107,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."],
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
       "channelWideVerified": false,
       "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
     },
@@ -102,7 +118,9 @@
       "url": null,
       "identityStatus": "unresolved",
       "verification": "Truncated screenshot name; no canonical channel URL verified",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -117,7 +135,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Canonical channel URL is unresolved"],
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
       "channelWideVerified": false,
       "coverageNote": "Unresolved identity; skipped rather than guessing"
     },
@@ -126,7 +146,10 @@
       "url": "https://www.youtube.com/channel/UCMiuw8FLujKn06dnlxpbWGQ",
       "identityStatus": "verified",
       "verification": "Official kryon.com video index outbound channel link",
-      "scopes": ["creator_index_2019", "creator_index_2020"],
+      "scopes": [
+        "creator_index_2019",
+        "creator_index_2020"
+      ],
       "expectedCount": null,
       "indexEntries": 199,
       "sourceItems": 197,
@@ -150,7 +173,9 @@
       "url": null,
       "identityStatus": "unresolved",
       "verification": "Truncated screenshot name; no canonical channel URL verified",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -165,7 +190,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Canonical channel URL is unresolved"],
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
       "channelWideVerified": false,
       "coverageNote": "Unresolved identity; skipped rather than guessing"
     },
@@ -174,7 +201,9 @@
       "url": "https://www.youtube.com/MagentaPixie2012",
       "identityStatus": "verified",
       "verification": "Official Magenta Pixie archive pages identify youtube.com/MagentaPixie2012",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -189,7 +218,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."],
+      "errors": [
+        "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
+      ],
       "channelWideVerified": false,
       "coverageNote": "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
     },
@@ -198,7 +229,9 @@
       "url": "https://www.youtube.com/channel/UC1Y09MHKaJGIfjGTFq3coHw",
       "identityStatus": "verified",
       "verification": "Official kristindaviesmedium.com outbound YouTube link",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -213,7 +246,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."],
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
       "channelWideVerified": false,
       "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
     },
@@ -222,7 +257,9 @@
       "url": null,
       "identityStatus": "unresolved",
       "verification": "No canonical channel URL verified",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -237,7 +274,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Canonical channel URL is unresolved"],
+      "errors": [
+        "Canonical channel URL is unresolved"
+      ],
       "channelWideVerified": false,
       "coverageNote": "Unresolved identity; skipped rather than guessing"
     },
@@ -246,7 +285,9 @@
       "url": "https://www.youtube.com/channel/UCZqVo9zuZ7_i7SnUlj__M6w",
       "identityStatus": "verified",
       "verification": "Official saraharyana.com outbound YouTube link",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -261,7 +302,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."],
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
       "channelWideVerified": false,
       "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
     },
@@ -270,7 +313,9 @@
       "url": "https://www.youtube.com/channel/UCztMyD_EcSK7JxeH2cMTcdg",
       "identityStatus": "verified",
       "verification": "Official arkayla.love outbound YouTube link",
-      "scopes": ["not_crawled"],
+      "scopes": [
+        "not_crawled"
+      ],
       "expectedCount": null,
       "indexEntries": 0,
       "sourceItems": 0,
@@ -285,7 +330,9 @@
       "totalComments": 0,
       "withCaptions": 0,
       "duplicatesRemoved": 0,
-      "errors": ["Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."],
+      "errors": [
+        "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
+      ],
       "channelWideVerified": false,
       "coverageNote": "Direct YouTube access timed out in this sandbox. Run the generic adapter in a network where public YouTube is reachable; no proxy or anti-bot workaround is enabled."
     }

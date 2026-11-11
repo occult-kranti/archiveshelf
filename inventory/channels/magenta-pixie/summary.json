@@ -1,0 +1,28 @@
+{
+  "channel": "Magenta Pixie",
+  "url": "https://www.youtube.com/MagentaPixie2012",
+  "identityStatus": "verified",
+  "verification": "Official Magenta Pixie archive pages identify youtube.com/MagentaPixie2012",
+  "scopes": [
+    "not_crawled"
+  ],
+  "expectedCount": null,
+  "indexEntries": 0,
+  "sourceItems": 0,
+  "totalVideos": 0,
+  "earliestVideo": null,
+  "latestVideo": null,
+  "metadataComplete": 0,
+  "transcripts": 0,
+  "totalDurationSeconds": 0,
+  "totalViews": 0,
+  "totalLikes": 0,
+  "totalComments": 0,
+  "withCaptions": 0,
+  "duplicatesRemoved": 0,
+  "errors": [
+    "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
+  ],
+  "channelWideVerified": false,
+  "coverageNote": "The official archive returned HTTP 403 (Cloudflare) to direct requests. Pagination indicates 1051+ entries, but the full index was not accessible for verification."
+}
