@@ -1,10 +1,15 @@
-# Audio archive status
+# Audio archive verification
 
-## Current run
+- Expected videos: **956**
+- Result rows: **16**
+- All attempted: **False**
+- Complete: **16**
+- Partial: **0**
+- Failed: **0**
+- Audio files: **16**
+- Transcript files: **16**
+- Resumed items: **0**
+- Duplicate rows removed: **0**
 
-- Workflow run: [43104710327](https://github.com/occult-kranti/archiveshelf/actions/runs/43104710327)
-- Smoke test: **complete — 1 audio file and 1 transcript, using OpenAI Whisper large-v3-turbo**
-- Parallel shards: **all 8 in progress**
-- Aggregation and release assets: **pending**
+See `audio-manifest.csv` for every item and `audio-verification.json` for machine-readable counts. Audio and transcript media are release assets, not Git blobs.
 
-The archive includes 112 high-confidence creator-hosted MP3 matches and 83 records explicitly marked unavailable. It does not fall back to YouTube anti-bot challenges. See `OFFICIAL-MEDIA.md` for coverage and `audio-verification.json` after aggregation for final counts.
